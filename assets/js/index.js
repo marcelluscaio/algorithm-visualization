@@ -7,9 +7,9 @@ const productSection = document.querySelector(".products");
 const botaoInsertion = document.querySelector("#insertion");
 const botaoSelection = document.querySelector("#selection");
 botaoInsertion.addEventListener("click", () => {
-   insertionSort(products);
+   moveItems(insertionSort(products));
    loader.style.display = "block";
-   renderItems();
+   //renderItems();
 });
 botaoSelection.addEventListener("click", () => {
    selectionSort(products);
@@ -33,6 +33,24 @@ function renderItems(){
       }   
    );
    loader.style.display = "none";
+}
+
+function moveItems(array){
+   for(let i = 0; i < array.length; i++){
+      delay(i, array)
+   }
+};
+
+//create object position to be able to increase iteratively (100, 200, 300). ow max is 100%
+function delay(i, array){
+   loader.style.display = "none";
+
+   setTimeout(() => {      
+      //for(const child of productSection.children){child.style.transform = "translate(0px, 0px)"};
+      productSection.children[array[i][0]].style.transform = `translate(-${array[i][0] - array[i][1]}00%, 20px)`;
+      productSection.children[array[i][1]].style.transform = `translate(-${array[i][0] - array[i][1]}00%, 20px)`;      
+      console.log(array[i]);
+   }, 1000 * i)
 }
 
 getItems();
