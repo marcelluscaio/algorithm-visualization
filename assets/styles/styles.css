@@ -5,16 +5,41 @@
 html, body{
    margin: 0;
    padding: 0;
+   min-height: 100vh;
 }
 
 body{
-   background-color: rgb(80, 94, 97); 
+   background-color: rgb(80, 94, 97);
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 5vh;
+   font-size: 1.25rem;
+}
+
+div:has(button + button){
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+}
+
+div:has(button + button) > button{
+  padding: 1em 2em;
+  border-radius: 1em / 4em;
+  background-color: rgb(180, 213, 220);
+  border: 2px solid black;
+  color: black;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: .07em;
 }
 
 .products{
    display: flex;
+   justify-content: center;
    
-   gap: 2.5%;  
+   gap: calc(100% / 70 );
 }
 
 .products > div{
@@ -40,6 +65,7 @@ body{
   width: 100%;
   height: 100%;
   background-color: rgba(0,0,0,0.3);
+  z-index: 1;
 }
 
 .lds-hourglass:after {

@@ -1,17 +1,20 @@
 import menorValor from './menorValor.js';
-import troca from './troca.js'; //adicionar. Reestruturar troca para isso
+//adicionar funcao troca. Reestruturar troca para isso
 
 const selectionSort = (products) =>{
-  
+  let movementsSelection = []
   for (let atual = 0; atual < products.length - 1; atual++) {
     let menor = menorValor(products, atual);
     
-    let livroAtual = livros[atual];
-    let livroMenorPreco = livros[menor];
+    let produtoAtual = products[atual];
+    let produtoMenorPreco = products[menor];
 
-    livros[atual] = livroMenorPreco
-    livros[menor] = livroAtual
+    products[atual] = produtoMenorPreco
+    products[menor] = produtoAtual;
+    movementsSelection.push([menor, atual]);
   }
+  
+  return movementsSelection;
 }
 
 export default selectionSort;
