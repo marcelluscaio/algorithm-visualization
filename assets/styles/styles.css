@@ -37,9 +37,10 @@ div:has(button + button) > button{
 
 .products{
    display: flex;
-   justify-content: center;
-   
+   justify-content: center;   
    gap: calc(100% / 70 );
+   
+   width: 85%;
 }
 
 .products > div{
