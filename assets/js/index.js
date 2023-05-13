@@ -18,7 +18,7 @@ botaoSelection.addEventListener("click", () => {
 async function getItems(){
    let result = await fetch('https://fakestoreapi.com/products');
    let jsonResult = await result.json();
-   products = jsonResult.slice(0, 6);
+   products = jsonResult.slice(0, 8);
    renderItems();   
 }
 
