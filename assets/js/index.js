@@ -44,19 +44,28 @@ function renderItems(){
 function moveItems(array){
    console.log(array);
    for(let i = 0; i < array.length; i++){
-      delay(i, array)
+      delay(i, array[i])
    }
 };
 
 //testar com numeros maiores (10 itens)
 function delay(i, array){
    loader.style.display = "none";
+   console.log(array)
    
    setTimeout(() => {
-      let arrayPosition0 = productSection.children[array[i][0]].dataset.arrayposition;
-      let arrayPosition1 = productSection.children[array[i][1]].dataset.arrayposition;
-      productSection.children[array[i][0]].dataset.arrayposition = arrayPosition1;
-      productSection.children[array[i][1]].dataset.arrayposition = arrayPosition0;
+      let bigger = productSection.children[array[0]];
+      let smaller = productSection.children[array[1]];
+      let biggerPosition = bigger.dataset.arrayposition;
+      let smallerPosition = smaller.dataset.arrayposition;
+      bigger.dataset.arrayposition = smallerPosition;
+      smaller.dataset.arrayposition = biggerPosition;
+
+
+      /* let arrayPosition0 = productSection.children[array[0]].dataset.arrayposition;
+      let arrayPosition1 = productSection.children[array[1]].dataset.arrayposition;
+      productSection.children[array[0]].dataset.arrayposition = arrayPosition1;
+      productSection.children[array[1]].dataset.arrayposition = arrayPosition0;
       
       let element1 = document.querySelector(`[data-arrayPosition='${arrayPosition1}']`);
       let element0 = document.querySelector(`[data-arrayPosition='${arrayPosition0}']`);
@@ -65,9 +74,8 @@ function delay(i, array){
       element0.dataset.position = parseInt(element0.dataset.position) + parseInt(arrayPosition0) - parseInt(arrayPosition1);
 
       element1.style.transform = `translate(${element1.dataset.position * 110}%, 0px)`;
-      element1.style.border = '1px solid #ff0000';
-      element0.style.transform = `translate(${element0.dataset.position * 110}%, 0px)`;
-   }, 1000 * i)
+      element0.style.transform = `translate(${element0.dataset.position * 110}%, 0px)`; */
+   }, 2000 * i)
 }
 
 getItems();
