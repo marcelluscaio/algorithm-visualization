@@ -38,7 +38,7 @@ div:has(button + button) > button{
 .products{
    display: flex;
    justify-content: center;   
-   gap: calc(100% / 70 );
+   gap: 16px/*calc(100% / 70 )*/;
    
    width: 85%;
 }
@@ -52,6 +52,8 @@ div:has(button + button) > button{
    background-color: rgb(180, 213, 220); 
    border-radius: 10% / 10%;
    padding: 1em;
+   --displacement: 0;
+   transform: translateX(var(--displacement));
 }
 
 .products > div > img{

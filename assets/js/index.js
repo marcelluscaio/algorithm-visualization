@@ -35,14 +35,14 @@ function renderItems(){
    let arrayPosition = 0;
    for(const child of productSection.children){
       child.style.transition = "transform .5s";
-      child.setAttribute('data-position', 0);
+      child.setAttribute('data-displacement', 0);
       child.setAttribute('data-arrayposition', arrayPosition);
       arrayPosition++;
    }
 }
 
 function moveItems(array){
-   console.log(array);
+   //console.log(array);
    for(let i = 0; i < array.length; i++){
       delay(i, array[i])
    }
@@ -54,22 +54,24 @@ function delay(i, array){
    console.log(array)
    
    setTimeout(() => {
-      let bigger = productSection.children[array[0]];
-      let smaller = productSection.children[array[1]];
-      let biggerPosition = bigger.dataset.arrayposition;
-      let smallerPosition = smaller.dataset.arrayposition;
-      bigger.dataset.arrayposition = smallerPosition;
+      const smaller = [...productSection.children].filter(item => item.dataset.arrayposition == array[0])[0];
+      const bigger = [...productSection.children].filter(item => item.dataset.arrayposition == array[1])[0];
+      const smallerPosition = smaller.dataset.arrayposition;
+      const biggerPosition = bigger.dataset.arrayposition;
+      const displacement = parseInt(smallerPosition) - parseInt(biggerPosition);
+   
       smaller.dataset.arrayposition = biggerPosition;
+      bigger.dataset.arrayposition = smallerPosition;
+      smaller.dataset.displacement = parseInt(smaller.dataset.displacement) - displacement;
+      bigger.dataset.displacement = parseInt(bigger.dataset.displacement) + displacement;
+      smaller.style.setProperty("--displacement", `${smaller.dataset.displacement * 112}%`);
+      bigger.style.setProperty("--displacement", `${bigger.dataset.displacement * 112}%`);
+      //bigger.style.transform = `translateX(${bigger.dataset.displacement * 100}%)`;
+      //smaller.style.transform = `translateX(${smaller.dataset.displacement * 100}%)`; 
 
 
-      /* let arrayPosition0 = productSection.children[array[0]].dataset.arrayposition;
-      let arrayPosition1 = productSection.children[array[1]].dataset.arrayposition;
-      productSection.children[array[0]].dataset.arrayposition = arrayPosition1;
-      productSection.children[array[1]].dataset.arrayposition = arrayPosition0;
-      
-      let element1 = document.querySelector(`[data-arrayPosition='${arrayPosition1}']`);
-      let element0 = document.querySelector(`[data-arrayPosition='${arrayPosition0}']`);
 
+      /*
       element1.dataset.position = parseInt(element1.dataset.position) + parseInt(arrayPosition1) - parseInt(arrayPosition0);
       element0.dataset.position = parseInt(element0.dataset.position) + parseInt(arrayPosition0) - parseInt(arrayPosition1);
 
