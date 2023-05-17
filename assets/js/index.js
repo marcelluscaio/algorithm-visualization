@@ -56,10 +56,12 @@ function moveItems(array){
 
 function delay(i, array){
    loader.style.display = "none";
-   console.log(array)
+   
    
    setTimeout(() => {
+      console.log(array);
       const smaller = [...productSection.children].filter(item => item.dataset.arrayposition == array[0])[0];
+      console.log(smaller);
       const bigger = [...productSection.children].filter(item => item.dataset.arrayposition == array[1])[0];
       const smallerPosition = smaller.dataset.arrayposition;
       const biggerPosition = bigger.dataset.arrayposition;
