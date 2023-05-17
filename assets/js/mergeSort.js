@@ -1,4 +1,6 @@
-const listaLivros = require('./array');
+//const listaLivros = require('./array');
+
+const trocas = [];
 
 function mergeSort(array, nivelAninhamento = 0) {
 
@@ -12,19 +14,30 @@ function mergeSort(array, nivelAninhamento = 0) {
     array = ordena(parte1, parte2);
   }
 
+  if(nivelAninhamento === 0){
+    return trocas;
+  }
   return array;
 }
+
 
 function ordena(parte1, parte2) {
   let posicaoAtualParte1 = 0 
   let posicaoAtualParte2 = 0
-  const resultado = []
+  const resultado = [];
+  
 
   while (posicaoAtualParte1 < parte1.length && posicaoAtualParte2 < parte2.length) {
-    let produtoAtualParte1 = parte1[posicaoAtualParte1]
-    let produtoAtualParte2 = parte2[posicaoAtualParte2]
+    let produtoAtualParte1 = parte1[posicaoAtualParte1];
+    let produtoAtualParte2 = parte2[posicaoAtualParte2];
 
-    if (produtoAtualParte1.preco < produtoAtualParte2.preco) {
+    trocas.push([produtoAtualParte2.id, produtoAtualParte1.id])
+    const idStorage = produtoAtualParte1.id;
+    produtoAtualParte1.id = produtoAtualParte2.id;
+    produtoAtualParte2.id = idStorage;
+
+
+    if (produtoAtualParte1.price < produtoAtualParte2.price) {
       resultado.push(produtoAtualParte1)
       posicaoAtualParte1++
     } else {
@@ -32,10 +45,16 @@ function ordena(parte1, parte2) {
       posicaoAtualParte2++
     }
   }
+  //resultado no model
+  console.log('ordena:', resultado.concat(posicaoAtualParte1 < parte1.length
+    ? parte1.slice(posicaoAtualParte1)
+    : parte2.slice(posicaoAtualParte2)));
 
   return resultado.concat(posicaoAtualParte1 < parte1.length
     ? parte1.slice(posicaoAtualParte1)
     : parte2.slice(posicaoAtualParte2))
 }
 
-console.log(mergeSort(listaLivros));
+//console.log(mergeSort(listaLivros));
+
+export default mergeSort;

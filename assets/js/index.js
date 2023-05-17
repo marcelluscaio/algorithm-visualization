@@ -1,5 +1,6 @@
 import insertionSort from "./insertionSort.js";
 import selectionSort from "./selectionSort.js";
+import mergeSort from "./mergeSort.js";
 
 let products = [];
 const loader = document.querySelector(".lds-hourglass");
@@ -7,12 +8,17 @@ const productSection = document.querySelector(".products");
 const buttonDiv = document.querySelector('div:has(button + button)')
 const botaoInsertion = document.querySelector("#insertion");
 const botaoSelection = document.querySelector("#selection");
+const botaoMerge = document.querySelector("#merge");
 botaoInsertion.addEventListener("click", () => {
    moveItems(insertionSort(products));
 });
 
 botaoSelection.addEventListener("click", () => {
    moveItems(selectionSort(products));
+});
+
+botaoMerge.addEventListener("click", () => {
+   moveItems(mergeSort(products));
 });
 
 async function getItems(){
@@ -48,7 +54,6 @@ function moveItems(array){
    }
 };
 
-//testar com numeros maiores (10 itens)
 function delay(i, array){
    loader.style.display = "none";
    console.log(array)
