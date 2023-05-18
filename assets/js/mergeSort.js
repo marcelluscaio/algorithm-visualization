@@ -31,10 +31,10 @@ function ordena(parte1, parte2) {
     let produtoAtualParte1 = parte1[posicaoAtualParte1];
     let produtoAtualParte2 = parte2[posicaoAtualParte2];
 
-    trocas.push([produtoAtualParte2.id-1, produtoAtualParte1.id-1])
-    const idStorage = produtoAtualParte1.id;
-    produtoAtualParte1.id = produtoAtualParte2.id;
-    produtoAtualParte2.id = idStorage;
+    trocas.push([produtoAtualParte1.id-1, produtoAtualParte2.id-1])
+    //const idStorage = produtoAtualParte1.id;
+    //produtoAtualParte1.id = produtoAtualParte2.id;
+    //produtoAtualParte2.id = idStorage;
 
 
     if (produtoAtualParte1.price < produtoAtualParte2.price) {
