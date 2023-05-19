@@ -18,7 +18,7 @@ botaoSelection.addEventListener("click", () => {
 });
 
 botaoMerge.addEventListener("click", () => {
-   moveItems(mergeSort(products));
+   moveItemsMerge(mergeSort(products));
 });
 
 async function getItems(){
@@ -59,9 +59,9 @@ function delay(i, array){
    
    
    setTimeout(() => {
-      console.log(array);
+      //console.log(array);
       const smaller = [...productSection.children].filter(item => item.dataset.arrayposition == array[0])[0];
-      console.log(smaller);
+      //console.log(smaller);
       const bigger = [...productSection.children].filter(item => item.dataset.arrayposition == array[1])[0];
       const smallerPosition = smaller.dataset.arrayposition;
       const biggerPosition = bigger.dataset.arrayposition;
@@ -73,18 +73,47 @@ function delay(i, array){
       bigger.dataset.displacement = parseInt(bigger.dataset.displacement) + displacement;
       smaller.style.setProperty("--displacement", `${smaller.dataset.displacement * 112}%`);
       bigger.style.setProperty("--displacement", `${bigger.dataset.displacement * 112}%`);
-      //bigger.style.transform = `translateX(${bigger.dataset.displacement * 100}%)`;
-      //smaller.style.transform = `translateX(${smaller.dataset.displacement * 100}%)`; 
 
+   }, 2000 * i);
+};
 
+function moveItemsMerge(array){
+/*    console.log(array);
+   const newArray = [];
+   array.forEach((item, index) => {
+      index % 2 === 0 ? newArray.push([item]) : newArray[Math.floor(index/2)].push(item);
+      
+   });
+   console.log(newArray) */
+   for(let i = 0; i < array.length; i++){
+      delayMerge(i, array[i]);
+   } 
+};
 
-      /*
-      element1.dataset.position = parseInt(element1.dataset.position) + parseInt(arrayPosition1) - parseInt(arrayPosition0);
-      element0.dataset.position = parseInt(element0.dataset.position) + parseInt(arrayPosition0) - parseInt(arrayPosition1);
+function delayMerge(i, position){
+   loader.style.display = "none";
+   
+   
+   setTimeout(() => {
+      //console.log(array);
+      const product = [...productSection.children].filter(item => item.dataset.arrayposition == position)[0];
+      /* product.dataset.displacement++;
+      product.style.setProperty("--displacementY", `${product.dataset.displacement * 100}}%`) */
+      /* const smaller = [...productSection.children].filter(item => item.dataset.arrayposition == array[0])[0];
+      //console.log(smaller);
+      const bigger = [...productSection.children].filter(item => item.dataset.arrayposition == array[1])[0];
+      const smallerPosition = smaller.dataset.arrayposition;
+      const biggerPosition = bigger.dataset.arrayposition;
+      const displacement = parseInt(smallerPosition) - parseInt(biggerPosition);
+   
+      smaller.dataset.arrayposition = biggerPosition;
+      bigger.dataset.arrayposition = smallerPosition;
+      smaller.dataset.displacement = parseInt(smaller.dataset.displacement) - displacement;
+      bigger.dataset.displacement = parseInt(bigger.dataset.displacement) + displacement;
+      smaller.style.setProperty("--displacement", `${smaller.dataset.displacement * 112}%`);
+      bigger.style.setProperty("--displacement", `${bigger.dataset.displacement * 112}%`); */
 
-      element1.style.transform = `translate(${element1.dataset.position * 110}%, 0px)`;
-      element0.style.transform = `translate(${element0.dataset.position * 110}%, 0px)`; */
-   }, 2000 * i)
-}
+   }, 2000 * i);
+};
 
 getItems();
