@@ -8,7 +8,8 @@ const productSection = document.querySelector(".products");
 const buttonDiv = document.querySelector('div:has(button + button)')
 const botaoInsertion = document.querySelector("#insertion");
 const botaoSelection = document.querySelector("#selection");
-const botaoMerge = document.querySelector("#merge");
+/* const botaoMerge = document.querySelector("#merge"); */
+
 botaoInsertion.addEventListener("click", () => {
    moveItems(insertionSort(products));
 });
@@ -17,9 +18,9 @@ botaoSelection.addEventListener("click", () => {
    moveItems(selectionSort(products));
 });
 
-botaoMerge.addEventListener("click", () => {
+/* botaoMerge.addEventListener("click", () => {
    moveItemsMerge(mergeSort(products));
-});
+}); */
 
 async function getItems(){
    let result = await fetch('https://fakestoreapi.com/products');
