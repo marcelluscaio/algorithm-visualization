@@ -1,6 +1,7 @@
 import insertionSort from "./insertionSort.js";
 import selectionSort from "./selectionSort.js";
 import mergeSort from "./mergeSort.js";
+import quickSort from "./quickSort.js";
 
 let products = [];
 const loader = document.querySelector(".lds-hourglass");
@@ -118,3 +119,5 @@ function delayMerge(i, position){
 };
 
 getItems();
+
+console.log(quickSort(products))

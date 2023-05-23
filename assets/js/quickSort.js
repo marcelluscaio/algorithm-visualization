@@ -1,4 +1,4 @@
-const listaLivros = require('./array');
+/* const listaLivros = require('./array'); */
 const trocaLugar = require('./encontraMenores');
 
 function quickSort(array, esquerda, direita) {
@@ -39,7 +39,7 @@ function particiona(array, esquerda, direita) {
   return atualEsquerda;
 }
 
-console.log(quickSort(listaLivros, 0, listaLivros.length - 1))
-
+//console.log(quickSort(listaLivros, 0, listaLivros.length - 1))
+export default quickSort;
 
 
