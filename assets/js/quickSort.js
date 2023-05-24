@@ -1,5 +1,5 @@
 /* const listaLivros = require('./array'); */
-const trocaLugar = require('./encontraMenores');
+//const trocaLugar = require('./encontraMenores');
 
 function quickSort(array, esquerda, direita) {
   if (array.length > 1) {

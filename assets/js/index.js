@@ -120,4 +120,4 @@ function delayMerge(i, position){
 
 getItems();
 
-console.log(quickSort(products))
+console.log(quickSort(products, 0, products.length -1));
