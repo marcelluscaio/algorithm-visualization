@@ -27,7 +27,8 @@ async function getItems(){
    let result = await fetch('https://fakestoreapi.com/products');
    let jsonResult = await result.json();
    products = jsonResult.slice(0, 8);
-   renderItems();   
+   renderItems();
+   console.log(quickSort(products, 0, products.length -1));
 }
 
 function renderItems(){
@@ -120,4 +121,3 @@ function delayMerge(i, position){
 
 getItems();
 
-console.log(quickSort(products, 0, products.length -1));

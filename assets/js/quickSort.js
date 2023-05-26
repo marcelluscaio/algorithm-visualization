@@ -1,7 +1,9 @@
 /* const listaLivros = require('./array'); */
 //const trocaLugar = require('./encontraMenores');
+import troca from './troca.js';
 
 function quickSort(array, esquerda, direita) {
+  console.log(array, esquerda, direita);
   if (array.length > 1) {
     let indiceAtual = particiona(array, esquerda, direita);
     if (esquerda < indiceAtual - 1) {
@@ -22,16 +24,16 @@ function particiona(array, esquerda, direita) {
   let atualDireita = direita; //10
 
   while (atualEsquerda <= atualDireita) {
-    while (array[atualEsquerda].preco < pivo.preco) {
+    while (array[atualEsquerda].price < pivo.price) {
       atualEsquerda++
     }
 
-    while (array[atualDireita].preco > pivo.preco) {
+    while (array[atualDireita].price > pivo.price) {
       atualDireita--
     }
 
     if (atualEsquerda <= atualDireita) {
-      trocaLugar(array, atualEsquerda, atualDireita);
+      troca(array, atualEsquerda, atualDireita);
       atualEsquerda++;
       atualDireita--;
     }
