@@ -6,7 +6,8 @@ function particiona(array, esquerda, direita) {
   console.log('array', array)
   console.log('esquerda, direita', esquerda, direita)
   let pivo = array[Math.floor((esquerda + direita) / 2)]
-  console.log(pivo)
+  console.log(pivo);
+  console.log(pivo.price);
   let atualEsquerda = esquerda; //0
   let atualDireita = direita; //10
 
@@ -20,7 +21,11 @@ function particiona(array, esquerda, direita) {
     }
 
     if (atualEsquerda <= atualDireita) {
-      troca(array, atualEsquerda, atualDireita);
+      //troca(array, atualEsquerda, atualDireita);
+      let hold = array[atualEsquerda];
+      array[atualEsquerda] = array[atualDireita];
+      array[atualDireita] = hold;
+      //O problema é aqui. A função não deveria ser troca
       atualEsquerda++;
       atualDireita--;
     }
