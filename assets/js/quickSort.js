@@ -1,13 +1,13 @@
 /* const listaLivros = require('./array'); */
 //const trocaLugar = require('./encontraMenores');
-import troca from './troca.js';
+import trocaPower from './trocaPower.js';
 
 function particiona(array, esquerda, direita) {
-  console.log('array', array)
-  console.log('esquerda, direita', esquerda, direita)
+  //console.log('array', array)
+  //console.log('esquerda, direita', esquerda, direita)
   let pivo = array[Math.floor((esquerda + direita) / 2)]
-  console.log(pivo);
-  console.log(pivo.price);
+  //console.log(pivo);
+  //console.log(pivo.price);
   let atualEsquerda = esquerda; //0
   let atualDireita = direita; //10
 
@@ -21,11 +21,7 @@ function particiona(array, esquerda, direita) {
     }
 
     if (atualEsquerda <= atualDireita) {
-      //troca(array, atualEsquerda, atualDireita);
-      let hold = array[atualEsquerda];
-      array[atualEsquerda] = array[atualDireita];
-      array[atualDireita] = hold;
-      //O problema é aqui. A função não deveria ser troca
+      console.log(trocaPower(array, atualEsquerda, atualDireita));
       atualEsquerda++;
       atualDireita--;
     }
@@ -34,7 +30,7 @@ function particiona(array, esquerda, direita) {
 }
 
 function quickSort(array, esquerda, direita) {
-  console.log(array, esquerda, direita);
+  //console.log(array, esquerda, direita);
   if (array.length > 1) {
     let indiceAtual = particiona(array, esquerda, direita);
     if (esquerda < indiceAtual - 1) {

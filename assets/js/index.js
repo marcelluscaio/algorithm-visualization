@@ -9,6 +9,7 @@ const productSection = document.querySelector(".products");
 const buttonDiv = document.querySelector('div:has(button + button)')
 const botaoInsertion = document.querySelector("#insertion");
 const botaoSelection = document.querySelector("#selection");
+const botaoQuick = document.querySelector("#quick");
 /* const botaoMerge = document.querySelector("#merge"); */
 
 botaoInsertion.addEventListener("click", () => {
@@ -17,6 +18,10 @@ botaoInsertion.addEventListener("click", () => {
 
 botaoSelection.addEventListener("click", () => {
    moveItems(selectionSort(products));
+});
+
+botaoQuick.addEventListener("click", () => {
+   moveItems(quickSort(products));
 });
 
 /* botaoMerge.addEventListener("click", () => {
@@ -28,7 +33,7 @@ async function getItems(){
    let jsonResult = await result.json();
    products = jsonResult.slice(0, 8);
    renderItems();
-   console.log(quickSort(products, 0, products.length -1));
+   //console.log(quickSort(products, 0, products.length -1));
 }
 
 function renderItems(){

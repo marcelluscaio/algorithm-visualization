@@ -1,4 +1,4 @@
-const listaLivros = require('./array')
+//const listaLivros = require('./array')
 
 function encontraMenores(pivo, array) {
   let menores = 0;
