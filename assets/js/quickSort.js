@@ -2,6 +2,8 @@
 //const trocaLugar = require('./encontraMenores');
 import trocaPower from './trocaPower.js';
 
+const movimentos = [];
+
 function particiona(array, esquerda, direita) {
   //console.log('array', array)
   //console.log('esquerda, direita', esquerda, direita)
@@ -21,7 +23,7 @@ function particiona(array, esquerda, direita) {
     }
 
     if (atualEsquerda <= atualDireita) {
-      console.log(trocaPower(array, atualEsquerda, atualDireita));
+      movimentos.push(trocaPower(array, atualEsquerda, atualDireita));
       atualEsquerda++;
       atualDireita--;
     }
@@ -30,7 +32,7 @@ function particiona(array, esquerda, direita) {
 }
 
 function quickSort(array, esquerda, direita) {
-  //console.log(array, esquerda, direita);
+  console.log(array, esquerda, direita);
   if (array.length > 1) {
     let indiceAtual = particiona(array, esquerda, direita);
     if (esquerda < indiceAtual - 1) {
@@ -40,7 +42,7 @@ function quickSort(array, esquerda, direita) {
       quickSort(array, indiceAtual, direita)
     }
   }
-  return array;
+  return movimentos;
 }
 
 

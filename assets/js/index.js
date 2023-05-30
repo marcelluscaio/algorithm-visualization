@@ -21,7 +21,7 @@ botaoSelection.addEventListener("click", () => {
 });
 
 botaoQuick.addEventListener("click", () => {
-   moveItems(quickSort(products));
+   moveItems(quickSort(products, 0, products.length -1));
 });
 
 /* botaoMerge.addEventListener("click", () => {
@@ -56,7 +56,7 @@ function renderItems(){
 }
 
 function moveItems(array){
-   //console.log(array);
+   console.log(array);
    for(let i = 0; i < array.length; i++){
       delay(i, array[i])
    }
