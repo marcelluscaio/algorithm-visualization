@@ -23,7 +23,9 @@ function particiona(array, esquerda, direita) {
     }
 
     if (atualEsquerda <= atualDireita) {
-      movimentos.push(trocaPower(array, atualEsquerda, atualDireita));
+      if(atualEsquerda != atualDireita){
+        movimentos.push(trocaPower(array, atualEsquerda, atualDireita));
+      }
       atualEsquerda++;
       atualDireita--;
     }
