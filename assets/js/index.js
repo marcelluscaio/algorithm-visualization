@@ -10,6 +10,7 @@ const buttonDiv = document.querySelector('div:has(button + button)')
 const botaoInsertion = document.querySelector("#insertion");
 const botaoSelection = document.querySelector("#selection");
 const botaoQuick = document.querySelector("#quick");
+const botaoReset = document.querySelector("#reset");
 /* const botaoMerge = document.querySelector("#merge"); */
 
 botaoInsertion.addEventListener("click", () => {
@@ -22,6 +23,11 @@ botaoSelection.addEventListener("click", () => {
 
 botaoQuick.addEventListener("click", () => {
    moveItems(quickSort(products, 0, products.length -1));
+});
+
+botaoReset.addEventListener("click", () => {
+   getItems();
+   renderItems();
 });
 
 /* botaoMerge.addEventListener("click", () => {
